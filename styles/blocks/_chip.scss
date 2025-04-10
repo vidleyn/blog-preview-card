@@ -1,0 +1,19 @@
+@use "../variables" as var;
+
+.chip {
+  &__item {
+    box-sizing: border-box;
+    display: inline-block;
+    font: var.$text-preset-3-bold;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background-color: var(--color-yellow);
+    flex-grow: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}

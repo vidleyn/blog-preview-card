@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Figtree", Arial, Helvetica, sans-serif;
+  background-color: var(--color-yellow);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+h1 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+a {
+  color: var(--color-gray-500);
+  text-decoration: none;
+}
+
+.container {
+  margin-inline: auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-block: 10px;
+}

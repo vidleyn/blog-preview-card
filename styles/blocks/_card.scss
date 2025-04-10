@@ -1,0 +1,85 @@
+@use "../variables" as var;
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  max-width: 384px;
+  padding: 24px;
+  border: 1px solid var(--color-gray-950);
+  border-radius: 20px;
+  background-color: var(--color-white);
+  filter: drop-shadow(8px 8px 0 rgba(0, 0, 0, 1));
+  transition: 0.2s;
+
+  &__contents {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  &__date {
+    font: var.$text-preset-3;
+  }
+
+  &__heading {
+    color: var(--color-gray-950);
+    font: var.$text-preset-1;
+    transition: 0.1s;
+
+    &-link {
+      &:hover {
+        .card__heading {
+          color: var(--color-yellow);
+        }
+
+        .card {
+          filter: drop-shadow(16px 16px 0 rgba(0, 0, 0, 1));
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        inset: 0;
+      }
+    }
+  }
+
+  &__description {
+    color: var(--color-gray-500);
+    font: var.$text-preset-2;
+  }
+
+  &__author {
+    --image-size: 32px;
+
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    font: var.$text-preset-3-bold;
+
+    img {
+      height: var(--image-size);
+      width: var(--image-size);
+      object-fit: cover;
+    }
+  }
+
+  &__image {
+    img {
+      border-radius: 10px;
+    }
+  }
+
+  // &:hover {
+  //   cursor: pointer;
+
+  //   .card__heading {
+  //     color: var(--color-yellow);
+  //   }
+  // }
+}
