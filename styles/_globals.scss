@@ -1,8 +1,10 @@
+@use "./variables" as var;
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: "Figtree", Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--color-yellow);
 }
 
@@ -29,5 +31,6 @@ a {
 }
 
 .container {
-  margin-inline: auto;
+  max-width: var.$container-width;
+  margin-inline: max(24px, var.$container-margin);
 }

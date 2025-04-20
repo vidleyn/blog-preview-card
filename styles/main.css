@@ -202,13 +202,14 @@ svg * {
   --color-white: hsl(0, 0%, 100%);
   --color-gray-500: hsl(0, 0%, 42%);
   --color-gray-950: hsl(0, 0%, 7%);
+  --font-body: "Figtree", Arial, Helvetica, sans-serif;
 }
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: "Figtree", Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--color-yellow);
 }
 
@@ -235,7 +236,8 @@ a {
 }
 
 .container {
-  margin-inline: auto;
+  max-width: max(320px, 87.2vw, 1440px);
+  margin-inline: max(24px, (100dvw - max(320px, 87.2vw, 1440px)) / 2);
 }
 
 .card {
@@ -245,6 +247,7 @@ a {
   flex-direction: column;
   row-gap: 24px;
   max-width: 384px;
+  width: 100%;
   padding: 24px;
   border: 1px solid var(--color-gray-950);
   border-radius: 20px;
@@ -252,8 +255,17 @@ a {
   filter: drop-shadow(8px 8px 0 rgb(0, 0, 0));
   transition: 0.2s;
 }
-.card:hover {
+@media (hover: hover) {
+  .card:hover, .card:focus {
+    filter: drop-shadow(16px 16px 0 rgb(0, 0, 0));
+  }
+}
+.card:active {
   filter: drop-shadow(16px 16px 0 rgb(0, 0, 0));
+}
+.card__container {
+  display: flex;
+  justify-content: center;
 }
 .card__contents {
   display: flex;
@@ -261,14 +273,18 @@ a {
   row-gap: 12px;
 }
 .card__date {
-  font: 500 14px/1.5 "Figtree", Arial, Helvetica, sans-serif;
+  font: 500 clamp(12px, 3.3333333333vw, 14px)/1.5 var(--font-body);
 }
 .card__heading {
   color: var(--color-gray-950);
-  font: 800 24px/1.5 "Figtree", Arial, Helvetica, sans-serif;
-  transition: 0.1s;
+  font: 800 clamp(20px, 5vw, 24px)/1.5 var(--font-body);
 }
-.card__heading-link:hover .card__heading {
+@media (hover: hover) {
+  .card__heading-link:hover .card__heading, .card__heading-link:focus .card__heading {
+    color: var(--color-yellow);
+  }
+}
+.card__heading-link:active .card__heading {
   color: var(--color-yellow);
 }
 .card__heading-link::before {
@@ -279,7 +295,7 @@ a {
 }
 .card__description {
   color: var(--color-gray-500);
-  font: 500 16px/1.5 "Figtree", Arial, Helvetica, sans-serif;
+  font: 500 clamp(14px, 3.3333333333vw, 16px)/1.5 var(--font-body);
 }
 .card__author {
   --image-size: 32px;
@@ -287,7 +303,7 @@ a {
   align-items: center;
   -moz-column-gap: 12px;
        column-gap: 12px;
-  font: 800 14px/1.5 "Figtree", Arial, Helvetica, sans-serif;
+  font: 800 clamp(12px, 2.9166666667vw, 14px)/1.5 var(--font-body);
 }
 .card__author img {
   height: var(--image-size);
@@ -296,13 +312,16 @@ a {
      object-fit: cover;
 }
 .card__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
   border-radius: 10px;
 }
 
 .chip__item {
   box-sizing: border-box;
   display: inline-block;
-  font: 800 14px/1.5 "Figtree", Arial, Helvetica, sans-serif;
+  font: 800 clamp(12px, 2.9166666667vw, 14px)/1.5 var(--font-body);
   padding: 4px 12px;
   border-radius: 4px;
   background-color: var(--color-yellow);

@@ -1,11 +1,20 @@
+@function font-resize($max-font, $breackpoint) {
+  @return calc(100vw * $max-font / $breackpoint);
+}
+
+$container-width: max(320px, 87.2vw, 1440px);
+$container-margin: calc((100dvw - $container-width) / 2);
+
+$text-preset-1: 800 clamp(20px, font-resize(24, 480), 24px) / 1.5 var(--font-body);
+$text-preset-2: 500 clamp(14px, font-resize(16, 480), 16px) / 1.5 var(--font-body);
+$text-preset-3: 500 clamp(12px, font-resize(16, 480), 14px) / 1.5 var(--font-body);
+$text-preset-3-bold: 800 clamp(12px, font-resize(14, 480), 14px) / 1.5 var(--font-body);
+
 :root {
   --color-yellow: hsl(47, 88%, 63%);
   --color-white: hsl(0, 0%, 100%);
   --color-gray-500: hsl(0, 0%, 42%);
   --color-gray-950: hsl(0, 0%, 7%);
-}
 
-$text-preset-1: 800 24px/1.5 "Figtree", Arial, Helvetica, sans-serif;
-$text-preset-2: 500 16px/1.5 "Figtree", Arial, Helvetica, sans-serif;
-$text-preset-3: 500 14px/1.5 "Figtree", Arial, Helvetica, sans-serif;
-$text-preset-3-bold: 800 14px/1.5 "Figtree", Arial, Helvetica, sans-serif;
+  --font-body: "Figtree", Arial, Helvetica, sans-serif;
+}
